@@ -117,7 +117,7 @@
           document.getElementById('secondList').appendChild(newItemNode)
           }
         };
-
+        // another solution
         // const addToTheSecond = function (content) {
         //   let newList = document.getElementById('secondList')
         //   let liNode = document.getElementsByTagName('li')
@@ -165,15 +165,19 @@
         /* EXERCISE 9
          Make the heading of the page change color every time the user clicks on it.
         */
-  
-        const makeItClickable = function () {
+        const makeItClickable = function(){
+        const randomColor = function () {
           let r = Math.floor(Math.random()*256);
           let g = Math.floor(Math.random()*256);
           let b = Math.floor(Math.random()*256);
-          return{r,g,b};
+          return[r,g,b];
         }
-
-        
+        let heading =document.getElementsByTagName('h1')[0]
+         heading.addEventListener('click',function(event){
+          event.target.style.color = `rgb(${randomColor()})`;
+         })
+        };
+        makeItClickable();
   
         /* EXERCISE 10
          Change the footer text with something else when the user clicks on it.
@@ -202,7 +206,10 @@
         */
   
         const inputField = document.getElementById("input-field");
-
+            document.onkeypress = function(e){
+              console.log(inputField.value);
+            }
+            
 
         /* EXERCISE 12
          Create a welcome alert message when the page successfully loads.
@@ -211,7 +218,7 @@
         window.onload = function () {
           alert("welcome to the page")
         };
-        window.onload();
+       
         /* EXERCISE 13
          Use HTML5 tags to properly provide semantic meaning to the different portions of the page.
         */
